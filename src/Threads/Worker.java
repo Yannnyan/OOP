@@ -74,7 +74,7 @@ public class Worker extends Thread{
         }
     }
     public void startWorking(){
-        this.run();
+        this.start();
     }
 }
 
