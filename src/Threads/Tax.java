@@ -58,17 +58,17 @@ public class Tax implements TaxInterface {
                 return 0;
         }
         deltaMas = mas2 - mas1;
-        if(stage == 7){
-            return ((money - MAS_6)* masRatio);
-        }
         if(money < mas1){
             return 0;
         }
-        else if(money > mas2){
+        if(stage == 7){
+            return ((money - MAS_6)* masRatio);
+        }
+        if(money > mas2){
             return (deltaMas * masRatio);
         }
         else{
-            return ((mas2 - money) * masRatio);
+            return ((money - mas1) * masRatio);
         }
     }
 
@@ -77,12 +77,12 @@ public class Tax implements TaxInterface {
     public double IncomeTax(TaxPayer taxPayer) {
         int sum_taxes = 0;
         double val;
-        for (int i = 0; i < 7; i++) {
+        for (int i = 1; i < 8; i++) {
             val = stagesSwitch(i,taxPayer.getIncome());
-            if(val != 0) // sanity check
-                sum_taxes += val;
-            else
-                break;
+            //if(val != 0) // sanity check
+            sum_taxes += val;
+            //else
+           //     break;
         }
         return sum_taxes;
     }
