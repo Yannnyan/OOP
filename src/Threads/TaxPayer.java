@@ -6,13 +6,29 @@ public class TaxPayer {
     private double savings;
     private float pensionRate;
     private float zikuiPoints;
+    private String name;
 
-    public TaxPayer(double income, double savings, float pensionRate, float zikuiPoints){
+    public TaxPayer(){
+        this.income = 0;
+        this.savings = 0;
+        this.pensionRate = 0;
+        this.zikuiPoints = 0;
+    }
+
+    public TaxPayer(double income, double savings, float pensionRate, float zikuiPoints, String name){
         this.income = income; this.savings = savings; this.pensionRate = pensionRate;this.zikuiPoints = zikuiPoints;
     }
 
-    public TaxPayer(double income, double savings, float pensionRate){
+    public TaxPayer(double income, double savings, float pensionRate, String name){
         this.income = income; this.savings = savings; this.pensionRate = pensionRate;this.zikuiPoints = 2.25f;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public float getPensionRate() {
